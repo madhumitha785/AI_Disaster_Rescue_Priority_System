@@ -1,0 +1,44 @@
+seed: 42
+
+data:
+  root: data/processed
+  image_size: 512
+  num_classes: 10
+  num_workers: 2
+  class_names:
+    - Background
+    - Building Flooded
+    - Building Non-Flooded
+    - Road Flooded
+    - Road Non-Flooded
+    - Water
+    - Tree
+    - Vehicle
+    - Pool
+    - Grass
+
+model:
+  architecture: unet
+  encoder: mobilenet_v2
+  encoder_weights: imagenet
+  in_channels: 3
+
+training:
+  epochs: 40
+  batch_size: 4
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  patience: 7
+  amp: true
+  gradient_accumulation_steps: 1
+  class_weights: auto
+  dice_weight: 1.0
+  cross_entropy_weight: 1.0
+  output_dir: outputs/unet_mobilenetv2
+
+priority:
+  building_weight: 0.50
+  road_weight: 0.35
+  water_weight: 0.15
+  low_max: 30.0
+  medium_max: 60.0

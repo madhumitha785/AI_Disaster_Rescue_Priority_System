@@ -1,0 +1,11 @@
+streamlit>=1.45,<2
+numpy>=1.26,<3
+pandas>=2.2,<3
+Pillow>=10,<13
+PyYAML>=6,<7
+opencv-python-headless>=4.10,<5
+torch>=2.4,<3
+torchvision>=0.19,<1
+segmentation-models-pytorch>=0.4,<1
+albumentations>=2,<3
+tqdm>=4.66,<5
